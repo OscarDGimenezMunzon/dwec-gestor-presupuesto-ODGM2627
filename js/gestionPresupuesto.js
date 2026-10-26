@@ -1,7 +1,20 @@
 // TODO: Crear las funciones, objetos y variables indicadas en el enunciado
 
-// Variable global
+// VARIABLES GLOBALES
+
 let presupuesto = 0;
+
+// OBJETOS
+
+let Gasto = {
+    //propiedades
+    descripcion: String,
+    valor: Number,
+    //métodos
+    mostrarGasto: function(){return `Gasto correspondiente a ${this.descripcion} con valor de ${this.valor}€.`;},
+    actualizarDescripcion: function(nuevaDescripcion){this.descripcion = nuevaDescripcion},
+    actualizarValor: function(nuevoValor){if(nuevoValor>=0) this.valor = nuevoValor},
+}
 
 // FUNCIONES
 function actualizarPresupuesto(numero) {
@@ -13,7 +26,6 @@ function actualizarPresupuesto(numero) {
         alert("Error: El número introducido es negativo.");
         return -1;
     }
-        
 }
 
 function mostrarPresupuesto() {
