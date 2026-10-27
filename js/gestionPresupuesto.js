@@ -14,6 +14,18 @@ function Gasto (descripcion, valor) {
     this.mostrarGasto = function(){return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`;};
     this.actualizarDescripcion= function(nuevaDescripcion){this.descripcion = nuevaDescripcion};
     this.actualizarValor = function(nuevoValor){if(nuevoValor>=0) this.valor = nuevoValor};
+
+    this.CrearGasto = function (descripcion, numero) {
+        if (numero > 0) {
+            let gastoNuevo = new Gasto(descripcion, numero);
+            return gastoNuevo;
+        }
+        else {
+            let gastoNuevo = new Gasto(descripcion, 0);
+            return gastoNuevo;
+        }
+    }
+
 }
 
 // FUNCIONES
@@ -32,16 +44,7 @@ function mostrarPresupuesto() {
     return "Tu presupuesto actual es de " + presupuesto + " €";
 }
 
-function CrearGasto(descripcion, numero) {
-    if (numero > 0){
-        let gastoNuevo = new Gasto(descripcion, numero);
-        return gastoNuevo;
-    }
-    else{
-        let gastoNuevo = new Gasto(descripcion, 0);
-        return gastoNuevo;
-    }
-}
+
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
 // Las funciones y objetos deben tener los nombres que se indican en el enunciado
