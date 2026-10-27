@@ -4,28 +4,16 @@
 
 let presupuesto = 0;
 
-// OBJETOS
+// OBJETOS Y FUNCIONES CONSTRUCTORAS
 
-function Gasto (descripcion, valor) {
+function CrearGasto (descripcion, valor) {
     //propiedades
     this.descripcion = descripcion;
-    this.valor = valor;
+    this.valor = valor > 0 ? valor : 0;
     //métodos
     this.mostrarGasto = function(){return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`;};
     this.actualizarDescripcion= function(nuevaDescripcion){this.descripcion = nuevaDescripcion};
     this.actualizarValor = function(nuevoValor){if(nuevoValor>=0) this.valor = nuevoValor};
-
-    this.CrearGasto = function (descripcion, numero) {
-        if (numero > 0) {
-            let gastoNuevo = new Gasto(descripcion, numero);
-            return gastoNuevo;
-        }
-        else {
-            let gastoNuevo = new Gasto(descripcion, 0);
-            return gastoNuevo;
-        }
-    }
-
 }
 
 // FUNCIONES
@@ -43,7 +31,6 @@ function actualizarPresupuesto(numero) {
 function mostrarPresupuesto() {
     return "Tu presupuesto actual es de " + presupuesto + " €";
 }
-
 
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
