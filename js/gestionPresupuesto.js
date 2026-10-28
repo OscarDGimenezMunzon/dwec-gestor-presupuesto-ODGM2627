@@ -13,7 +13,7 @@ function CrearGasto (descripcion, valor, fecha, ...etiquetas) {
     this.descripcion = descripcion;
     this.valor = valor > 0 ? valor : 0;
     this.fecha = new Date(fecha);
-    this.etiquetas = [];
+    this.etiquetas = etiquetas;
 
     //métodos
     this.mostrarGasto = function(){return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`;};
@@ -53,11 +53,16 @@ function borrarGasto(idGasto) {
 }
 
 function calcularTotalGastos() {
-
+    let sumaGastos = 0;
+    for (let gasto of gastos){
+        sumaGastos += gasto.valor;
+    }
+    return sumaGastos;
 }
 
 function calcularBalance() {
-
+    let resultado = presupuesto - calcularTotalGastos();
+    return resultado;
 }
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
