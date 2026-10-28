@@ -8,11 +8,11 @@ let idGasto = 0;
 
 // OBJETOS Y FUNCIONES CONSTRUCTORAS
 
-function CrearGasto (descripcion, valor) {
+function CrearGasto (descripcion, valor, fecha, ...etiquetas) {
     //propiedades
     this.descripcion = descripcion;
     this.valor = valor > 0 ? valor : 0;
-    this.fecha = new Date().getTime();
+    this.fecha = new Date(fecha);
     this.etiquetas = [];
 
     //métodos
@@ -41,12 +41,15 @@ function listarGastos() {
     return gastos;
 }
 
-function anyadirGasto() {
-
+function anyadirGasto(gasto) {
+    gasto.id = idGasto;
+    idGasto++;
+    gastos.push(gasto);
 }
 
-function borrarGasto() {
-
+function borrarGasto(idGasto) {
+    let indiceABorrar = gastos.findIndex(gasto => gasto.id == idGasto);
+    gastos.splice(indiceABorrar, 1);
 }
 
 function calcularTotalGastos() {
