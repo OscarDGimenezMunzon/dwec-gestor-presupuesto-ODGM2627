@@ -17,8 +17,29 @@ function CrearGasto (descripcion, valor, fecha, ...etiquetas) {
 
     //métodos
     this.mostrarGasto = function(){return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`;};
-    this.actualizarDescripcion= function(nuevaDescripcion){this.descripcion = nuevaDescripcion};
-    this.actualizarValor = function(nuevoValor){if(nuevoValor>=0) this.valor = nuevoValor};
+    this.actualizarDescripcion = function (nuevaDescripcion) { this.descripcion = nuevaDescripcion };
+    this.actualizarValor = function (nuevoValor) { if (nuevoValor >= 0) this.valor = nuevoValor };
+    
+    this.mostrarGastoCompleto = function () {
+        return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €.
+Fecha: ${this.fecha.toLocaleString()}
+Etiquetas:
+- ${this.etiquetas[0]}
+- ${this.etiquetas[1]}
+- ${this.etiquetas[2]}
+`;
+    };
+
+    this.actualizarFecha = function(fechaActualizada){
+   /*     if(new Date(fechaActualizada)){
+            this.fecha = Date.parse(fechaActualizada);
+        }
+    */
+   };
+
+    this.anyadirEtiquetas = function(){};
+
+    this.borrarEtiquetas = function(){};
 }
 
 // FUNCIONES
