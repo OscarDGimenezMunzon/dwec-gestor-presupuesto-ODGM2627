@@ -12,6 +12,9 @@ function CrearGasto (descripcion, valor) {
     //propiedades
     this.descripcion = descripcion;
     this.valor = valor > 0 ? valor : 0;
+    this.fecha = new Date().getTime();
+    this.etiquetas = [];
+
     //métodos
     this.mostrarGasto = function(){return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`;};
     this.actualizarDescripcion= function(nuevaDescripcion){this.descripcion = nuevaDescripcion};
@@ -35,7 +38,7 @@ function mostrarPresupuesto() {
 }
 
 function listarGastos() {
-
+    return gastos;
 }
 
 function anyadirGasto() {
