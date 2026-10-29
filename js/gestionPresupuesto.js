@@ -31,15 +31,21 @@ Etiquetas:
     };
 
     this.actualizarFecha = function(fechaActualizada){
-   /*     if(new Date(fechaActualizada)){
-            this.fecha = Date.parse(fechaActualizada);
-        }
-    */
+        Date.parse(fechaActualizada) ? this.fecha = Date.parse(fechaActualizada) : "";
    };
 
-    this.anyadirEtiquetas = function(){};
+    this.anyadirEtiquetas = function(...etiquetasNuevas){
+        for(let etiqueta of etiquetasNuevas){
+            this.etiquetas.includes(etiqueta) ? "" : this.etiquetas.push(etiqueta);
+        }
+    };
 
-    this.borrarEtiquetas = function(){};
+    this.borrarEtiquetas = function(...etiquetasBorrar){
+        for(let etiqueta of etiquetasBorrar){
+            let indice = this.etiquetas.indexOf(etiqueta);
+            indice >= 0 ? this.etiquetas.splice(indice, 1) : "";
+        }
+    };
 }
 
 // FUNCIONES
