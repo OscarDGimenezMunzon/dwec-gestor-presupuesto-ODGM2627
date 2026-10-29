@@ -12,7 +12,7 @@ function CrearGasto (descripcion, valor, fecha, ...etiquetas) {
     //propiedades
     this.descripcion = descripcion;
     this.valor = valor > 0 ? valor : 0;
-    this.fecha = new Date(fecha);
+    this.fecha = Date.parse(fecha) ? Date.parse(fecha) : new Date();
     this.etiquetas = etiquetas;
 
     //métodos
@@ -22,7 +22,7 @@ function CrearGasto (descripcion, valor, fecha, ...etiquetas) {
     
     this.mostrarGastoCompleto = function () {
         return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €.
-Fecha: ${this.fecha.toLocaleString()}
+Fecha: ${new Date(this.fecha).getDate()}/${new Date(this.fecha).getMonth() + 1}/${new Date(this.fecha).getFullYear()}, ${new Date(this.fecha).getHours()}:${new Date(this.fecha).getMinutes()}:${("0" + new Date(this.fecha).getSeconds()).slice(-2)}
 Etiquetas:
 - ${this.etiquetas[0]}
 - ${this.etiquetas[1]}
