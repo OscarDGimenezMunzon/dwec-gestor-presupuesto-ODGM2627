@@ -46,6 +46,37 @@ Etiquetas:
             indice >= 0 ? this.etiquetas.splice(indice, 1) : "";
         }
     };
+
+    this.obtenerPeriodoAgrupacion = function (periodo) {
+        
+        let fechaGasto = new Date(this.fecha);
+        let diaGasto = fechaGasto.getDate();
+        let mesGasto = fechaGasto.getMonth() + 1;
+        let anyoGasto = fechaGasto.getFullYear();
+        let formatoPeriodo = "";
+
+        if (diaGasto < 10)
+            diaGasto = "0" + diaGasto;
+
+        if (mesGasto < 10)
+            mesGasto = "0" + mesGasto;
+
+        switch(periodo){
+            case "dia": 
+                formatoPeriodo = anyoGasto + "-" + mesGasto + "-" + diaGasto;
+                break;
+            case "mes":
+                formatoPeriodo = anyoGasto + "-" + mesGasto;
+                break;
+            case "anyo":
+                formatoPeriodo = anyoGasto + "";
+                break
+            default:
+                formatoPeriodo = "Error";
+        }
+        
+        return formatoPeriodo;
+    }
 }
 
 // FUNCIONES
@@ -92,6 +123,14 @@ function calcularBalance() {
     return resultado;
 }
 
+function filtrarGastos() {
+
+}
+
+function agruparGastos() {
+
+}
+
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
 // Las funciones y objetos deben tener los nombres que se indican en el enunciado
 // Si al obtener el código de una práctica se genera un conflicto, por favor incluye todo el código que aparece aquí debajo
@@ -104,4 +143,6 @@ export {
     borrarGasto,
     calcularTotalGastos,
     calcularBalance,
+    filtrarGastos,
+    agruparGastos,
 }
