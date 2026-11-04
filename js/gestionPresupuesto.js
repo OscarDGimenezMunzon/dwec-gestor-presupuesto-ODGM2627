@@ -74,7 +74,6 @@ Etiquetas:
             default:
                 formatoPeriodo = "Error";
         }
-        
         return formatoPeriodo;
     }
 }
@@ -123,9 +122,23 @@ function calcularBalance() {
     return resultado;
 }
 
-function filtrarGastos() {
+function filtrarGastos(objeto) {
 
+    let resultado = gastos.filter(function(gasto) {
+
+        let filtro1 = objeto.valorMinimo !== undefined ? gasto.valor >= objeto.valorMinimo : true; // si no existe el filtro valorMinimo, devuelve true para no descartar este gasto.
+        let filtro2 = objeto.valorMaximo !== undefined ? gasto.valor <= objeto.valorMaximo : true;
+        let filtro3 = objeto.fechaDesde !== undefined ? Date.parse(gasto.fecha) >= Date.parse(objeto.fechaDesde) : true;
+        let filtro4 = objeto.fechaHasta !== undefined ? Date.parse(gasto.fecha) <= Date.parse(objeto.fechaHasta) : true;
+        let filtro5 = objeto.descripcionContiene !== undefined ? gasto.descripcion.toLowerCase().includes(objeto.descripcionContiene.toLowerCase()) : true;
+
+        return filtro1 && filtro2 && filtro3 && filtro4 && filtro5;
+        
+    });
+
+    return resultado;
 }
+    
 
 function agruparGastos() {
 
