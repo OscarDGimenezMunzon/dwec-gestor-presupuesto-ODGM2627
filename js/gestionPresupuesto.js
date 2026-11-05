@@ -123,16 +123,13 @@ function calcularBalance() {
 }
 
 function filtrarGastos(objeto) {
-    console.log("Fecha desde:", objeto.fechaDesde);
-console.log("Fecha de los gastos:", gastos.map(gasto => gasto.fecha));
-console.log("Fecha parseada:", gastos.map(gasto => Date.parse(gasto.fecha)));
 
     return gastos.filter(function (gasto) {
 
         let filtro1 = objeto.valorMinimo !== undefined ? gasto.valor >= objeto.valorMinimo : true; // si no existe el filtro valorMinimo, devuelve true para no descartar este gasto.
         let filtro2 = objeto.valorMaximo !== undefined ? gasto.valor <= objeto.valorMaximo : true;
-        let filtro3 = Date.parse(objeto.fechaDesde) !== undefined ? Date.parse(gasto.fecha) >= Date.parse(objeto.fechaDesde) : true;
-        let filtro4 = Date.parse(objeto.fechaHasta) !== undefined ? Date.parse(gasto.fecha) <= Date.parse(objeto.fechaHasta) : true;
+        let filtro3 = objeto.fechaDesde !== undefined ? gasto.fecha >= Date.parse(objeto.fechaDesde) : true;  //la fecha se almacena en el objeto gasto en forma de timestamp.
+        let filtro4 = objeto.fechaHasta !== undefined ? gasto.fecha <= Date.parse(objeto.fechaHasta) : true;
         let filtro5 = objeto.descripcionContiene !== undefined ? gasto.descripcion.toLowerCase().includes(objeto.descripcionContiene.toLowerCase()) : true;
         let filtro6 = objeto.etiquetasTiene !== undefined ?
             objeto.etiquetasTiene.some(function (etiquetaBuscada) {
