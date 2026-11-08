@@ -148,9 +148,25 @@ function filtrarGastos(objeto) {
 }
     
 
-function agruparGastos() {
+function agruparGastos(periodo, etiquetas, fechaDesde, fechaHasta) {
 
+    //filtrar por fechas indicadas
+    let gastosFiltrados = filtrarGastos({fechaDesde: fechaDesde, fechaHasta: fechaHasta, etiquetasTiene: etiquetas});
+
+    //agrupar gastos por periodo
+    let gastosAgrupados = gastosFiltrados.reduce(function(acc, gasto){
+        let periodoGasto = gasto.obtenerPeriodoAgrupacion(periodo);
+        acc[periodoGasto] ? (acc[periodoGasto] += gasto.valor) : (acc[periodoGasto] = gasto.valor); // si existe el periodo, le suma el gasto, sino lo crea y le asigna el valor
+      return acc;
+    }, {}); // {} es el valor inicial del acumulador. array.reduce(funcionCallback(acc,elem,i,arr){}, valorInicialAcc)
+
+    return gastosAgrupados;
 }
+
+
+
+
+
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
 // Las funciones y objetos deben tener los nombres que se indican en el enunciado
@@ -167,8 +183,3 @@ export {
     filtrarGastos,
     agruparGastos,
 }
-
-let k = {
-}
-
-filtrarGastos(k);
