@@ -1,5 +1,5 @@
 function mostrarDatoEnId (idElemento, valor) {
-    document.getElementById(idElemento) = valor;
+    document.getElementById(idElemento).textContent = valor;
 }
 
 function mostrarGastoWeb (idElemento, gasto) {
@@ -23,7 +23,7 @@ function mostrarGastoWeb (idElemento, gasto) {
 }
 
 function mostrarGastosAgrupadosWeb (idElemento, agrup, periodo) {
-    
+
 }
 
 export{

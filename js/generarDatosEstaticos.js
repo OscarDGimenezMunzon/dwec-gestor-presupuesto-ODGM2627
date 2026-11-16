@@ -1,0 +1,37 @@
+import * as gestionPresupuestoLibreria from './gestionPresupuesto.js';
+import * as gestionPresupuestoWebLibreria from './gestionPresupuestoWeb.js';
+
+//Actualizar el presupuesto a 1500€ (función actualizarPresupuesto)
+gestionPresupuestoLibreria.actualizarPresupuesto(1500);
+
+//Mostrar el presupuesto en el div#presupuesto (funciones mostrarPresupuesto y mostrarDatoEnId)
+gestionPresupuestoWebLibreria.mostrarDatoEnId("presupuesto", gestionPresupuestoLibreria.mostrarPresupuesto());
+
+//Crear gastos de ejemplo (función crearGasto) (en enunciado)
+let gasto1 = CrearGasto("Compra carne", 23.44, "2021-10-06", "casa", "comida");
+let gasto2 = CrearGasto("Compra fruta y verdura", 14.25, "2021-09-06", "supermercado", "comida");
+let gasto3 = CrearGasto("Bonobús", 18.60, "2020-05-26", "transporte");
+let gasto4 = CrearGasto("Gasolina", 60.42, "2021-10-08", "transporte", "gasolina");
+let gasto5 = CrearGasto("Seguro hogar", 206.45, "2021-09-26", "casa", "seguros");
+let gasto6 = CrearGasto("Seguro coche", 195.78, "2021-10-06", "transporte", "seguros");
+
+//Añadir los gastos creados (función anyadirGasto)
+gestionPresupuestoLibreria.anyadirGasto(gasto1);
+gestionPresupuestoLibreria.anyadirGasto(gasto2);
+gestionPresupuestoLibreria.anyadirGasto(gasto3);
+gestionPresupuestoLibreria.anyadirGasto(gasto4);
+gestionPresupuestoLibreria.anyadirGasto(gasto5);
+gestionPresupuestoLibreria.anyadirGasto(gasto6);
+
+//Mostrar los gastos totales en div#gastos-totales (funciones calcularTotalGastos y mostrarDatoEnId)
+
+
+//Mostrar el balance total en div#balance-total (funciones calcularBalance y mostrarDatoEnId)
+//Mostrar el listado completo de gastos en div#listado-gastos-completo (funciones listarGastos y mostrarGastoWeb)
+//Mostrar el listado de gastos realizados en septiembre de 2021 en div#listado-gastos-filtrado-1 (funciones filtrarGastos y mostrarGastoWeb)
+//Mostrar el listado de gastos de más de 50€ en div#listado-gastos-filtrado-2 (funciones filtrarGastos y mostrarGastoWeb)
+//Mostrar el listado de gastos de más de 200€ con etiqueta seguros en div#listado-gastos-filtrado-3 (funciones filtrarGastos y mostrarGastoWeb)
+//Mostrar el listado de gastos que tengan las etiquetas comida o transporte de menos de 50€ en div#listado-gastos-filtrado-4 (funciones filtrarGastos y mostrarGastoWeb)
+//Mostrar el total de gastos agrupados por día en div#agrupacion-dia (funciones agruparGastos y mostrarGastosAgrupadosWeb)
+//Mostrar el total de gastos agrupados por mes en div#agrupacion-mes (funciones agruparGastos y mostrarGastosAgrupadosWeb)
+//Mostrar el total de gastos agrupados por año en div#agrupacion-anyo (funciones agruparGastos y mostrarGastosAgrupadosWeb)
