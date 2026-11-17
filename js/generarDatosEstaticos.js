@@ -8,12 +8,12 @@ gestionPresupuestoLibreria.actualizarPresupuesto(1500);
 gestionPresupuestoWebLibreria.mostrarDatoEnId("presupuesto", gestionPresupuestoLibreria.mostrarPresupuesto());
 
 //Crear gastos de ejemplo (función crearGasto) (en enunciado)
-let gasto1 = CrearGasto("Compra carne", 23.44, "2021-10-06", "casa", "comida");
-let gasto2 = CrearGasto("Compra fruta y verdura", 14.25, "2021-09-06", "supermercado", "comida");
-let gasto3 = CrearGasto("Bonobús", 18.60, "2020-05-26", "transporte");
-let gasto4 = CrearGasto("Gasolina", 60.42, "2021-10-08", "transporte", "gasolina");
-let gasto5 = CrearGasto("Seguro hogar", 206.45, "2021-09-26", "casa", "seguros");
-let gasto6 = CrearGasto("Seguro coche", 195.78, "2021-10-06", "transporte", "seguros");
+let gasto1 = new gestionPresupuestoLibreria.CrearGasto("Compra carne", 23.44, "2021-10-06", "casa", "comida");
+let gasto2 = new gestionPresupuestoLibreria.CrearGasto("Compra fruta y verdura", 14.25, "2021-09-06", "supermercado", "comida");
+let gasto3 = new gestionPresupuestoLibreria.CrearGasto("Bonobús", 18.60, "2020-05-26", "transporte");
+let gasto4 = new gestionPresupuestoLibreria.CrearGasto("Gasolina", 60.42, "2021-10-08", "transporte", "gasolina");
+let gasto5 = new gestionPresupuestoLibreria.CrearGasto("Seguro hogar", 206.45, "2021-09-26", "casa", "seguros");
+let gasto6 = new gestionPresupuestoLibreria.CrearGasto("Seguro coche", 195.78, "2021-10-06", "transporte", "seguros");
 
 //Añadir los gastos creados (función anyadirGasto)
 gestionPresupuestoLibreria.anyadirGasto(gasto1);
@@ -24,7 +24,7 @@ gestionPresupuestoLibreria.anyadirGasto(gasto5);
 gestionPresupuestoLibreria.anyadirGasto(gasto6);
 
 //Mostrar los gastos totales en div#gastos-totales (funciones calcularTotalGastos y mostrarDatoEnId)
-
+gestionPresupuestoWebLibreria.mostrarDatoEnId("gastos-totales", gestionPresupuestoLibreria.calcularTotalGastos());
 
 //Mostrar el balance total en div#balance-total (funciones calcularBalance y mostrarDatoEnId)
 //Mostrar el listado completo de gastos en div#listado-gastos-completo (funciones listarGastos y mostrarGastoWeb)
