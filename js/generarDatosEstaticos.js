@@ -54,7 +54,7 @@ for (let gasto of gastosFiltrados3){
 }
 
 //Mostrar el listado de gastos que tengan las etiquetas comida o transporte de menos de 50€ en div#listado-gastos-filtrado-4 (funciones filtrarGastos y mostrarGastoWeb)
-let gastosFiltrados4 = gestionPresupuestoLibreria.filtrarGastos({valorMaximo: 50, etiquetasTiene: ["commida", "transporte"]})
+let gastosFiltrados4 = gestionPresupuestoLibreria.filtrarGastos({valorMaximo: 50, etiquetasTiene: ["comida", "transporte"]})
 for (let gasto of gastosFiltrados4){
     gestionPresupuestoWebLibreria.mostrarGastoWeb("listado-gastos-filtrado-4", gasto);
 }
