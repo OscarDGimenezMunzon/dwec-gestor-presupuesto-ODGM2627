@@ -54,6 +54,11 @@ for (let gasto of gastosFiltrados3){
 }
 
 //Mostrar el listado de gastos que tengan las etiquetas comida o transporte de menos de 50€ en div#listado-gastos-filtrado-4 (funciones filtrarGastos y mostrarGastoWeb)
+let gastosFiltrados4 = gestionPresupuestoLibreria.filtrarGastos({valorMaximo: 50, etiquetasTiene: ["commida", "transporte"]})
+for (let gasto of gastosFiltrados4){
+    gestionPresupuestoWebLibreria.mostrarGastoWeb("listado-gastos-filtrado-4", gasto);
+}
+
 //Mostrar el total de gastos agrupados por día en div#agrupacion-dia (funciones agruparGastos y mostrarGastosAgrupadosWeb)
 //Mostrar el total de gastos agrupados por mes en div#agrupacion-mes (funciones agruparGastos y mostrarGastosAgrupadosWeb)
 //Mostrar el total de gastos agrupados por año en div#agrupacion-anyo (funciones agruparGastos y mostrarGastosAgrupadosWeb)
