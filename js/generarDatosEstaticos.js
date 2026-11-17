@@ -36,6 +36,11 @@ gestionPresupuestoWebLibreria.mostrarGastoWeb("listado-gastos-completo", gasto);
 }
 
 //Mostrar el listado de gastos realizados en septiembre de 2021 en div#listado-gastos-filtrado-1 (funciones filtrarGastos y mostrarGastoWeb)
+let gastosfiltrados1 = gestionPresupuestoLibreria.filtrarGastos({fechaDesde: "2021-09-01", fechaHasta: "2021-09-30"});
+for (let gasto of gastosfiltrados1){
+gestionPresupuestoWebLibreria.mostrarGastoWeb("listado-gastos-filtrado-1", gasto);
+}
+
 //Mostrar el listado de gastos de más de 50€ en div#listado-gastos-filtrado-2 (funciones filtrarGastos y mostrarGastoWeb)
 //Mostrar el listado de gastos de más de 200€ con etiqueta seguros en div#listado-gastos-filtrado-3 (funciones filtrarGastos y mostrarGastoWeb)
 //Mostrar el listado de gastos que tengan las etiquetas comida o transporte de menos de 50€ en div#listado-gastos-filtrado-4 (funciones filtrarGastos y mostrarGastoWeb)
