@@ -61,7 +61,11 @@ for (let gasto of gastosFiltrados4){
 
 //Mostrar el total de gastos agrupados por día en div#agrupacion-dia (funciones agruparGastos y mostrarGastosAgrupadosWeb)
 let gastosDia = gestionPresupuestoLibreria.agruparGastos("dia");
-gestionPresupuestoWebLibreria.mostrarGastosAgrupadosWeb("agrupacion-dia", gastosDia, "día")
+gestionPresupuestoWebLibreria.mostrarGastosAgrupadosWeb("agrupacion-dia", gastosDia, "día");
 
 //Mostrar el total de gastos agrupados por mes en div#agrupacion-mes (funciones agruparGastos y mostrarGastosAgrupadosWeb)
+let gastosMes = gestionPresupuestoLibreria.agruparGastos("mes");
+gestionPresupuestoWebLibreria.mostrarGastosAgrupadosWeb("agrupacion-mes", gastosMes, "mes");
+
+
 //Mostrar el total de gastos agrupados por año en div#agrupacion-anyo (funciones agruparGastos y mostrarGastosAgrupadosWeb)
