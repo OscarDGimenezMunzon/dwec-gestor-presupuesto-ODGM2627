@@ -11,14 +11,14 @@ function mostrarGastoWeb (idElemento, gasto) {
         </span>`;
     }
     
-    document.getElementById(idElemento).innerHTML = `<div class="gasto">
+    document.getElementById(idElemento).innerHTML += `<div class="gasto">
   <div class="gasto-descripcion">${gasto.descripcion}</div>
-  <div class="gasto-fecha">${gasto.fecha.toLocaleString()}</div> 
+  <div class="gasto-fecha">${new Date(gasto.fecha).toLocaleDateString()}</div> 
   <div class="gasto-valor">${gasto.valor}</div> 
   <div class="gasto-etiquetas">
     ${listaEtiquetasHTML}
-    <!-- Etcétera -->
-  </div> 
+  </div>
+  </br> 
 </div>`
 }
 
