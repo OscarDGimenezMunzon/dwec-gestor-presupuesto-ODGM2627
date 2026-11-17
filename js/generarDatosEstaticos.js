@@ -67,5 +67,6 @@ gestionPresupuestoWebLibreria.mostrarGastosAgrupadosWeb("agrupacion-dia", gastos
 let gastosMes = gestionPresupuestoLibreria.agruparGastos("mes");
 gestionPresupuestoWebLibreria.mostrarGastosAgrupadosWeb("agrupacion-mes", gastosMes, "mes");
 
-
 //Mostrar el total de gastos agrupados por año en div#agrupacion-anyo (funciones agruparGastos y mostrarGastosAgrupadosWeb)
+let gastosAnyo = gestionPresupuestoLibreria.agruparGastos("anyo");
+gestionPresupuestoWebLibreria.mostrarGastosAgrupadosWeb("agrupacion-anyo", gastosAnyo, "año");
