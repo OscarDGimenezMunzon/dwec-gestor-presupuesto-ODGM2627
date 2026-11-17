@@ -42,6 +42,11 @@ gestionPresupuestoWebLibreria.mostrarGastoWeb("listado-gastos-filtrado-1", gasto
 }
 
 //Mostrar el listado de gastos de más de 50€ en div#listado-gastos-filtrado-2 (funciones filtrarGastos y mostrarGastoWeb)
+let gastosFiltrados2 = gestionPresupuestoLibreria.filtrarGastos({valorMinimo: 50})
+for (let gasto of gastosFiltrados2){
+    gestionPresupuestoWebLibreria.mostrarGastoWeb("listado-gastos-filtrado-2", gasto);
+}
+
 //Mostrar el listado de gastos de más de 200€ con etiqueta seguros en div#listado-gastos-filtrado-3 (funciones filtrarGastos y mostrarGastoWeb)
 //Mostrar el listado de gastos que tengan las etiquetas comida o transporte de menos de 50€ en div#listado-gastos-filtrado-4 (funciones filtrarGastos y mostrarGastoWeb)
 //Mostrar el total de gastos agrupados por día en div#agrupacion-dia (funciones agruparGastos y mostrarGastosAgrupadosWeb)
