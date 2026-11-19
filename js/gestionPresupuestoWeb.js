@@ -1,3 +1,5 @@
+import * as gestionPresupuestoLibreria from "./gestionPresupuesto.js"
+
 function mostrarDatoEnId (idElemento, valor) {
     document.getElementById(idElemento).textContent = valor;
 }
@@ -25,18 +27,58 @@ function mostrarGastoWeb (idElemento, gasto) {
 function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
 
     let datosAgrup = "";
-    for (let entrie of Object.entries(agrup)) {
+    /*  ESTRUCTURA ANTIGUA 
+        for (let entrie of Object.entries(agrup)) {
+            datosAgrup += `<div class="agrupacion-dato">
+        <span class="agrupacion-dato-clave">${entrie[0]}</span>
+        <span class="agrupacion-dato-valor">${entrie[1]}</span>
+    </div>
+    </br>`
+        };
+    */
+
+/*  COMENTARIO ELISA NOGUERA:
+    agrup es un objeto y se pueden recorrer sus propiedades con for...in
+
+    for (let prop in agrup) {
+
+    // prop es la propiedad y con agrup[prop] podemos acceder al valor
+
+    }
+*/
+
+for (let prop in agrup){
         datosAgrup += `<div class="agrupacion-dato">
-    <span class="agrupacion-dato-clave">${entrie[0]}</span>
-    <span class="agrupacion-dato-valor">${entrie[1]}</span>
-  </div>
-  </br>`
-    };
+        <span class="agrupacion-dato-clave">${prop}</span>
+        <span class="agrupacion-dato-valor">${agrup[prop]}</span>
+    </div>
+    </br>`
+}
 
     document.getElementById(idElemento).innerHTML = `<div class="agrupacion">
     <h1>Gastos agrupados por ${periodo}</h1>
     ${datosAgrup}
     </div>`
+}
+
+function repintar (){
+    //Mostrar el presupuesto en div#presupuesto (funciones mostrarPresupuesto y mostrarDatoEnId)
+    mostrarDatoEnId("presupuesto", gestionPresupuestoLibreria.mostrarPresupuesto());
+    
+    //Mostrar los gastos totales en div#gastos-totales (funciones calcularTotalGastos y mostrarDatoEnId)
+    mostrarDatoEnId("gastos-totales", gestionPresupuestoLibreria.calcularTotalGastos());
+
+    //Mostrar el balance total en div#balance-total (funciones calcularBalance y mostrarDatoEnId)
+    mostrarDatoEnId("balance-total", gestionPresupuestoLibreria.calcularBalance());
+
+    //Borrar el contenido de div#listado-gastos-completo, para que el paso siguiente no duplique la información. Puedes utilizar innerHTML para borrar el contenido de dicha capa.
+    document.getElementById("listado-gastos-completo").innerHTML = "";
+
+    //Mostrar el listado completo de gastos en div#listado-gastos-completo (funciones listarGastos y mostrarGastoWeb)
+    let listadoGastos = gestionPresupuestoLibreria.listarGastos();
+    for (let gasto of listadoGastos){
+    mostrarGastoWeb("listado-gastos-completo", gasto);
+    };
 }
 
 export{
