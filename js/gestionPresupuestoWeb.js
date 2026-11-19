@@ -81,6 +81,20 @@ function repintar (){
     };
 }
 
+
+//MANEJADOR DE EVENTOS DE BOTÓN actualizarpresupuesto
+let btnActualizarPresupuesto = document.getElementById("actualizarpresupuesto");
+
+btnActualizarPresupuesto.addEventListener("click", function(){
+    let inputPresupuesto = parseInt(prompt("Introduzca un presupuesto nuevo", undefined));
+    if (inputPresupuesto != isNaN)
+        gestionPresupuestoLibreria.actualizarPresupuesto(inputPresupuesto);
+    repintar();
+});
+
+
+
+
 export{
     mostrarDatoEnId,
     mostrarGastoWeb,
