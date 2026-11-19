@@ -61,7 +61,7 @@ for (let prop in agrup){
     </div>`
 }
 
-function repintar (){
+function repintar() {
     //Mostrar el presupuesto en div#presupuesto (funciones mostrarPresupuesto y mostrarDatoEnId)
     mostrarDatoEnId("presupuesto", gestionPresupuestoLibreria.mostrarPresupuesto());
     
@@ -92,7 +92,28 @@ btnActualizarPresupuesto.addEventListener("click", function(){
     repintar();
 });
 
+//MANEJADOR DE EVENTOS DE BOTÓN anyadirgasto
+let btnAnyadirgasto = document.getElementById("anyadirgasto");
 
+function nuevoGastoWeb() {
+    let descripcion = prompt("Introduzca la descripción del gasto.");
+    let valor = parseInt(prompt("Introduzca el valor del gasto."));
+    let fecha = prompt("Introduzca la fecha del gasto (yyyy-mm-dd)");
+    let etiquetas = prompt("Introduzca las etiquetas (etiqueta1,etiqueta2,etiqueta3)");
+
+    //Convertir la cadena de texto de etiquetas devuelta por prompt a un array.
+    etiquetas = etiquetas.split(",");
+
+    //Crear un nuevo gasto
+    let gastoNuevo = new gestionPresupuestoLibreria.CrearGasto(descripcion, valor, fecha, etiquetas.toString());
+
+    //Añadir el gasto a la lista
+    gestionPresupuestoLibreria.anyadirGasto(gastoNuevo);
+
+    repintar();
+}
+
+btnAnyadirgasto.addEventListener("click", nuevoGastoWeb);
 
 
 export{
