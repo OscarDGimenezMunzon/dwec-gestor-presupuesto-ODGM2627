@@ -136,6 +136,18 @@ function EditarHandle() {
     }
 }
 
+//Función BorrarHandle
+//Esta función se utilizará como objeto manejador de eventos para borrar un gasto.
+
+function BorrarHandle() {
+    this.handleEvent = function() {
+        gestionPresupuestoLibreria.borrarGasto(this.gasto.id);
+        repintar();
+    }
+}
+
+
+
 
 export{
     mostrarDatoEnId,
