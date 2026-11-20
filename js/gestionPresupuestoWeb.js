@@ -115,9 +115,9 @@ function nuevoGastoWeb() {
 
 btnAnyadirgasto.addEventListener("click", nuevoGastoWeb);
 
-//Función EditarHandle
-//Esta función se utilizará como objeto manejador de eventos para editar un gasto y añadir
-//un botón para editar cada gasto de la lista. Será una función constructora que definirá el handleEvent.
+/*Función EditarHandle
+Esta función se utilizará como objeto manejador de eventos para editar un gasto y añadir
+un botón para editar cada gasto de la lista. Será una función constructora que definirá el handleEvent.*/
 
 function EditarHandle() {
     this.handleEvent = function() {
@@ -136,8 +136,8 @@ function EditarHandle() {
     }
 }
 
-//Función BorrarHandle
-//Esta función se utilizará como objeto manejador de eventos para borrar un gasto.
+/*Función BorrarHandle
+Esta función se utilizará como objeto manejador de eventos para borrar un gasto.*/
 
 function BorrarHandle() {
     this.handleEvent = function() {
@@ -146,6 +146,15 @@ function BorrarHandle() {
     }
 }
 
+/*Función BorrarEtiquetasHandle
+Esta función se utilizará como objeto manejador de eventos para borrar etiquetas de un gasto. */
+
+function BorrarEtiquetasHandle() {
+    this.handleEvent = function() {
+        this.gasto.borrarEtiquetas(this.etiquetas);
+        repintar();
+    }
+}
 
 
 
