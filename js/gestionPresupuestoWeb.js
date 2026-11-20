@@ -115,6 +115,27 @@ function nuevoGastoWeb() {
 
 btnAnyadirgasto.addEventListener("click", nuevoGastoWeb);
 
+//Función EditarHandle
+//Esta función se utilizará como objeto manejador de eventos para editar un gasto y añadir
+//un botón para editar cada gasto de la lista. Será una función constructora que definirá el handleEvent.
+
+function EditarHandle() {
+    this.handleEvent = function() {
+        let descripcion = prompt("Introduzca la descripción del gasto.", this.gasto.descripcion);
+        let valor = Number(prompt("Introduzca el valor del gasto.", this.gasto.valor));
+        let fecha = prompt("Introduzca la fecha del gasto (yyyy-mm-dd)", new Date(this.gasto.fecha).toLocaleDateString());
+        let etiquetas = prompt("Introduzca las etiquetas (etiqueta1,etiqueta2,etiqueta3)");
+        if (etiquetas != null)
+            etiquetas.split(",");
+
+        this.gasto.actualizarValor(valor);
+        this.gasto.actualizarDescripcion(descripcion);
+        this.gasto.actualizarFecha(fecha);
+        this.gasto.anyadirEtiquetas(...etiquetas);
+        repintar();
+    }
+}
+
 
 export{
     mostrarDatoEnId,
